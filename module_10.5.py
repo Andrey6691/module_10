@@ -12,11 +12,13 @@ def read_info(filenames):
             break
         all_data.append(line.strip())
 
-# 'Линейный вызов'
+
 filenames = [f'./file {number}.txt' for number in range(1, 5)]
 
-# 'Многопроцессный вызов'
+
 if __name__ == '__main__':
+
+    # 'Линейный вызов'
 
     started_at = time.time()
     for i in filenames:
@@ -26,6 +28,7 @@ if __name__ == '__main__':
     elapsed = round(ended_at - started_at, 4)
     print(f'Время линейной обработки: {elapsed} секунд')
 
+    # 'Многопроцессный вызов'
 
     start_time = time.time()
     with Pool(4) as p:
